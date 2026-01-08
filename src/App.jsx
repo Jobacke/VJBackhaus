@@ -58,7 +58,7 @@ function App() {
                 </div>
               </div>
             }
-            header={<div className="flex flex-1 items-center justify-center w-full h-full min-h-[6rem] rounded-xl bg-neutral-900 border border-white/5 group-hover/bento:bg-primary-900/10 transition-colors"><Mail className="h-10 w-10 text-neutral-500 group-hover/bento:text-primary-400 transition-colors" /></div>}
+            header={<div className="flex flex-1 items-center justify-center w-full h-full min-h-[4rem] rounded-xl bg-neutral-900 border border-white/5 group-hover/bento:bg-primary-900/10 transition-colors"><Mail className="h-6 w-6 text-neutral-500 group-hover/bento:text-primary-400 transition-colors" /></div>}
             icon={<Mail className="h-4 w-4 text-neutral-500" />}
           />
 
