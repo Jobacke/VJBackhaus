@@ -94,7 +94,7 @@ function App() {
 
           {/* Tile 5: Location (Map Style) */}
           <BentoCard
-            className="md:col-span-1 bg-neutral-900"
+            className="md:col-span-2 bg-neutral-900"
             title="Standort"
             description="Neubiberg / München"
             header={
