@@ -91,10 +91,16 @@ function App() {
             description="Projektbezogene und nebenberufliche Tätigkeiten. Ich verwirkliche eigene Ideen."
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/5 relative group">
-                <ToggleImage
-                  primaryImage={motorcycleImg}
-                  secondaryImage={ambulanceImg}
-                />
+                <div className="flex w-full h-full">
+                  <div
+                    className="flex-1 bg-cover bg-center opacity-60 group-hover:opacity-100 transition-all duration-500"
+                    style={{ backgroundImage: `url(${motorcycleImg})` }}
+                  />
+                  <div
+                    className="flex-1 bg-cover bg-center opacity-60 group-hover:opacity-100 transition-all duration-500"
+                    style={{ backgroundImage: `url(${ambulanceImg})` }}
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent z-10 pointer-events-none" />
               </div>
             }
