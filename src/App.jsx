@@ -92,12 +92,30 @@ function App() {
             icon={<Star className="h-4 w-4 text-neutral-500" />}
           />
 
-          {/* Tile 5: Location / Decorative */}
+          {/* Tile 5: Location (Map Style) */}
           <BentoCard
             className="md:col-span-1 bg-neutral-900"
             title="Standort"
-            description="Based in Germany."
-            header={<div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-neutral-800 border border-white/5 items-center justify-center"><MapPin className="text-neutral-600" /></div>}
+            description="Neubiberg / München"
+            header={
+              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl border border-white/5 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-neutral-900 z-0" />
+                {/* Map Background */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+                  style={{ backgroundImage: "url('/JohannesBackhaus/src/assets/images/map-dark.png')" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent z-10" />
+
+                {/* Pulsing Pin */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <span className="relative flex h-4 w-4">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-primary-500 border-2 border-white"></span>
+                  </span>
+                </div>
+              </div>
+            }
             icon={<MapPin className="h-4 w-4 text-neutral-500" />}
           />
 
