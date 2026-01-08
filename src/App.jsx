@@ -119,17 +119,7 @@ function App() {
             icon={<MapPin className="h-4 w-4 text-neutral-500" />}
           />
 
-          {/* Tile 6: Socials / Links */}
-          <div className="md:col-span-1 row-span-1 gap-4 grid grid-rows-2">
-            <a href="#" className="rounded-xl bg-neutral-900 border border-white/10 p-4 flex items-center justify-center gap-2 hover:bg-neutral-800 transition-colors group">
-              <Linkedin className="w-6 h-6 text-neutral-400 group-hover:text-blue-500 transition-colors" />
-              <span className="text-sm font-medium text-neutral-400">LinkedIn</span>
-            </a>
-            <a href="#" className="rounded-xl bg-neutral-900 border border-white/10 p-4 flex items-center justify-center gap-2 hover:bg-neutral-800 transition-colors group">
-              <Github className="w-6 h-6 text-neutral-400 group-hover:text-white transition-colors" />
-              <span className="text-sm font-medium text-neutral-400">GitHub</span>
-            </a>
-          </div>
+
 
         </BentoGrid>
       </div>
