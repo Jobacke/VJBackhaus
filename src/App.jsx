@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Layout } from "./layouts/Layout";
 import { BentoGrid } from "./components/bento/BentoGrid";
 import { BentoCard } from "./components/bento/BentoCard";
+import { Slideshow } from "./components/ui/Slideshow";
 import { Briefcase, Star, Mail, MapPin, Linkedin, Github, User } from "lucide-react";
 import { cn } from "./lib/utils";
 
@@ -85,12 +86,13 @@ function App() {
             description="Projektbezogene und nebenberufliche Tätigkeiten. Ich verwirkliche eigene Ideen."
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/5 relative group">
-                <div className="absolute inset-0 bg-neutral-900 z-0" />
-                <div
-                  className="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                  style={{ backgroundImage: "url('/JohannesBackhaus/src/assets/images/juh_ambulance.jpg')" }}
+                <Slideshow
+                  images={[
+                    "/JohannesBackhaus/src/assets/images/juh_ambulance.jpg",
+                    "/JohannesBackhaus/src/assets/images/juh_motorcycle.jpg"
+                  ]}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent z-20 pointer-events-none" />
               </div>
             }
             icon={<Star className="h-4 w-4 text-neutral-500" />}
