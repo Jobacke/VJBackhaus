@@ -17,7 +17,7 @@ function App() {
           className="mb-12 text-center"
         >
           <h1 className="text-5xl md:text-7xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600">
-            Veronika & <br /> Johannes Backhaus
+            Johannes Backhaus
           </h1>
           <p className="text-neutral-400 mt-4 text-xl">
             Software & Innovation
@@ -29,8 +29,8 @@ function App() {
           {/* Tile 1: About / Intro (Large) */}
           <BentoCard
             className="md:col-span-2 md:row-span-1 bg-gradient-to-br from-neutral-900 to-neutral-800"
-            title="Über uns"
-            description="Diese Website bietet eine kompakte Übersicht über uns und unsere Tätigkeiten. Wir verbinden professionelle Expertise mit persönlicher Leidenschaft."
+            title="Über mich"
+            description="Diese Website bietet eine kompakte Übersicht über mich und meine Tätigkeiten. Ich verbinde professionelle Expertise mit persönlicher Leidenschaft."
             header={<div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-primary-900/40 to-neutral-900 border border-white/5" />}
             icon={<User className="h-4 w-4 text-neutral-500" />}
           />
@@ -43,7 +43,7 @@ function App() {
               <div className="flex flex-col gap-4 mt-2">
                 <div>
                   <p className="font-bold text-neutral-200">Postanschrift</p>
-                  <p className="text-neutral-400">Veronika und Johannes Backhaus</p>
+                  <p className="text-neutral-400">Johannes Backhaus</p>
                   <p className="text-neutral-400">Wotanstrasse 5</p>
                   <p className="text-neutral-400">85579 Neubiberg, Deutschland</p>
                 </div>
@@ -82,7 +82,7 @@ function App() {
             href="#"
             className="md:col-span-2 md:row-span-1 bg-gradient-to-r from-neutral-900 to-neutral-800"
             title="Nebentätigkeit"
-            description="Projektbezogene und nebenberufliche Tätigkeiten. Wir verwirklichen eigene Ideen."
+            description="Projektbezogene und nebenberufliche Tätigkeiten. Ich verwirkliche eigene Ideen."
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl border border-white/5 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-900/20 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
