@@ -84,9 +84,13 @@ function App() {
             title="Nebentätigkeit"
             description="Projektbezogene und nebenberufliche Tätigkeiten. Ich verwirkliche eigene Ideen."
             header={
-              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl border border-white/5 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-900/20 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-accent-500/20 rounded-full blur-3xl group-hover:bg-accent-500/30 transition-colors" />
+              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/5 relative group">
+                <div className="absolute inset-0 bg-neutral-900 z-0" />
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  style={{ backgroundImage: "url('/JohannesBackhaus/src/assets/images/juh_ambulance.jpg')" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent z-10" />
               </div>
             }
             icon={<Star className="h-4 w-4 text-neutral-500" />}
