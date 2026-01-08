@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Layout } from "./layouts/Layout";
 import { BentoGrid } from "./components/bento/BentoGrid";
 import { BentoCard } from "./components/bento/BentoCard";
-import { Slideshow } from "./components/ui/Slideshow";
+import { ToggleImage } from "./components/ui/ToggleImage";
 import { Briefcase, Star, Mail, MapPin, Linkedin, Github, User } from "lucide-react";
 import { cn } from "./lib/utils";
 
@@ -91,13 +91,11 @@ function App() {
             description="Projektbezogene und nebenberufliche Tätigkeiten. Ich verwirkliche eigene Ideen."
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/5 relative group">
-                <Slideshow
-                  images={[
-                    ambulanceImg,
-                    motorcycleImg
-                  ]}
+                <ToggleImage
+                  primaryImage={motorcycleImg}
+                  secondaryImage={ambulanceImg}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent z-20 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent z-10 pointer-events-none" />
               </div>
             }
             icon={<Star className="h-4 w-4 text-neutral-500" />}
