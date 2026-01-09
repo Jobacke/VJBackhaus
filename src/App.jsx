@@ -1,17 +1,22 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "./layouts/Layout";
 import { BentoGrid } from "./components/bento/BentoGrid";
 import { BentoCard } from "./components/bento/BentoCard";
 import { ToggleImage } from "./components/ui/ToggleImage";
-import { Briefcase, Star, Mail, MapPin, Linkedin, Github, User } from "lucide-react";
+import { Briefcase, Star, Mail, MapPin, Linkedin, Github, User, Plus } from "lucide-react";
 import { cn } from "./lib/utils";
+import { NewEntryForm } from "./components/work-calendar/NewEntryForm";
 
 // Import images
 import mapImg from "./assets/images/map-dark.png";
 import ambulanceImg from "./assets/images/juh_ambulance.jpg";
 import motorcycleImg from "./assets/images/juh_motorcycle.jpg";
+import orchestraImg from "./assets/images/br_orchestra.jpg";
 
 function App() {
+  const [showNewEntry, setShowNewEntry] = useState(false);
+
   return (
     <Layout>
       <div className="px-6 md:px-12 py-12 relative">
@@ -75,9 +80,13 @@ function App() {
             title="Beruf"
             description="Meine aktuelle Tätigkeit beim Bayerischen Rundfunk"
             header={
-              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/5 relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent z-10" />
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center opacity-40 hover:scale-105 transition-transform duration-500" />
+              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/5 relative group">
+                <div className="absolute inset-0 bg-neutral-900 z-0" />
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  style={{ backgroundImage: `url(${orchestraImg})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/20 to-transparent z-10" />
               </div>
             }
             icon={<Briefcase className="h-4 w-4 text-neutral-500" />}
@@ -138,6 +147,43 @@ function App() {
 
         </BentoGrid>
       </div>
+
+      {/* Floating Action Button for New Entry Demo */}
+      <div className="fixed bottom-6 right-6 z-40">
+        <button
+          onClick={() => setShowNewEntry(true)}
+          className="flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white px-5 py-3 rounded-full shadow-lg shadow-primary-900/30 transition-all hover:scale-105 active:scale-95 font-medium"
+        >
+          <Plus className="w-5 h-5" />
+          Neuer Eintrag (Demo)
+        </button>
+      </div>
+
+      {/* New Entry Modal */}
+      <AnimatePresence>
+        {showNewEntry && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowNewEntry(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+            <div className="relative z-10 w-full max-w-2xl">
+              <NewEntryForm
+                onClose={() => setShowNewEntry(false)}
+                onSubmit={(data) => {
+                  console.log(data);
+                  setShowNewEntry(false);
+                  alert("Eintrag gespeichert! (Demo)");
+                }}
+              />
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
+
     </Layout>
   );
 }
