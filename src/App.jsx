@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "./layouts/Layout";
 import { BentoGrid } from "./components/bento/BentoGrid";
 import { BentoCard } from "./components/bento/BentoCard";
 import { ToggleImage } from "./components/ui/ToggleImage";
 import { FlipCard } from "./components/ui/FlipCard";
-import { Briefcase, Star, Mail, MapPin, Linkedin, Github, User } from "lucide-react";
+import { ImageModal } from "./components/ui/ImageModal";
+import { Briefcase, Star, Mail, MapPin, Linkedin, Github, User, ZoomIn } from "lucide-react";
 import { cn } from "./lib/utils";
 
 // Import images
@@ -12,17 +14,27 @@ import mapImg from "./assets/images/map-dark.png";
 import ambulanceImg from "./assets/images/juh_ambulance.jpg";
 import motorcycleImg from "./assets/images/juh_motorcycle.jpg";
 import orchestraImg from "./assets/images/br_orchestra.jpg";
-import certImg from "./assets/images/certificate_rs.jpg";
+import certRsImg from "./assets/images/certificate_rs.jpg";
+import certWbImg from "./assets/images/certificate_wb.jpg";
+import certAclsImg from "./assets/images/certificate_acls.jpg";
 
 function App() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const certificates = [
+    { src: certRsImg, alt: "Rettungssanitäter Urkunde", label: "Rettungssanitäter" },
+    { src: certWbImg, alt: "Weiterbildung Rettungsdienst", label: "Weiterbildung" },
+    { src: certAclsImg, alt: "ACLS Zertifikat", label: "ACLS Provider" },
+  ];
+
   return (
     <Layout>
-      <div className="px-6 md:px-12 py-12 relative">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-12 md:py-24">
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8 }}
           className="mb-12 text-center"
         >
           <h1 className="text-5xl md:text-7xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600">
@@ -33,7 +45,7 @@ function App() {
           </p>
         </motion.div>
 
-        <BentoGrid className="max-w-4xl mx-auto">
+        <BentoGrid>
 
           {/* Tile 1: About / Intro (Large) */}
           <BentoCard
@@ -44,7 +56,25 @@ function App() {
             icon={<User className="h-4 w-4 text-neutral-500" />}
           />
 
-          {/* Tile 2: Contact (Detailed) */}
+          {/* Tile 2: Profession */}
+          <BentoCard
+            className="md:col-span-1 md:row-span-1 bg-neutral-900"
+            title="Beruf"
+            description="Meine aktuelle Tätigkeit beim Bayerischen Rundfunk"
+            header={
+              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/5 relative group">
+                <div className="absolute inset-0 bg-neutral-900 z-0" />
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  style={{ backgroundImage: `url(${orchestraImg})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/20 to-transparent z-10" />
+              </div>
+            }
+            icon={<Briefcase className="h-4 w-4 text-neutral-500" />}
+          />
+
+          {/* Tile 3: Contact (Tall) */}
           <BentoCard
             className="md:col-span-1 md:row-span-2 bg-neutral-950"
             title="Kontakt"
@@ -71,26 +101,7 @@ function App() {
             icon={<Mail className="h-4 w-4 text-neutral-500" />}
           />
 
-          {/* Tile 3: Beruf (Tall) */}
-          <BentoCard
-            href="#"
-            className="md:col-span-1 md:row-span-2 bg-neutral-900"
-            title="Beruf"
-            description="Meine aktuelle Tätigkeit beim Bayerischen Rundfunk"
-            header={
-              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/5 relative group">
-                <div className="absolute inset-0 bg-neutral-900 z-0" />
-                <div
-                  className="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                  style={{ backgroundImage: `url(${orchestraImg})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/20 to-transparent z-10" />
-              </div>
-            }
-            icon={<Briefcase className="h-4 w-4 text-neutral-500" />}
-          />
-
-          {/* Tile 4: Nebentätigkeit (Wide) */}
+          {/* Tile 4: Nebentätigkeit with Flip Gallery */}
           <BentoCard
             href="#"
             className="md:col-span-2 md:row-span-1 bg-gradient-to-r from-neutral-900 to-neutral-800"
@@ -113,8 +124,28 @@ function App() {
                     </div>
                   }
                   backContent={
-                    <div className="w-full h-full bg-neutral-800 p-4 flex flex-col items-center justify-center text-center">
-                      <img src={certImg} alt="Rettungssanitäter Urkunde" className="max-h-full max-w-full object-contain rounded shadow-lg" />
+                    <div className="w-full h-full bg-neutral-800 p-4 flex flex-col items-center justify-center">
+                      <div className="grid grid-cols-3 gap-2 w-full h-full items-center">
+                        {certificates.map((cert, index) => (
+                          <div
+                            key={index}
+                            onClick={(e) => {
+                              e.stopPropagation(); // Prevent flip back
+                              setSelectedImage(cert.src);
+                            }}
+                            className="relative cursor-pointer group/cert aspect-[3/4] overflow-hidden rounded-md border border-white/10 hover:border-primary-500/50 transition-colors bg-neutral-900"
+                          >
+                            <img
+                              src={cert.src}
+                              alt={cert.alt}
+                              className="w-full h-full object-cover opacity-80 group-hover/cert:opacity-100 group-hover/cert:scale-105 transition-all duration-300"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover/cert:opacity-100 transition-opacity">
+                              <ZoomIn className="w-6 h-6 text-white drop-shadow-lg" />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   }
                 />
@@ -149,12 +180,16 @@ function App() {
             }
             icon={<MapPin className="h-4 w-4 text-neutral-500" />}
           />
-
-
-
         </BentoGrid>
       </div>
 
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <ImageModal
+          src={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
+      )}
     </Layout>
   );
 }
