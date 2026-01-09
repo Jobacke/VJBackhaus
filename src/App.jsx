@@ -4,7 +4,8 @@ import { Layout } from "./layouts/Layout";
 import { BentoGrid } from "./components/bento/BentoGrid";
 import { BentoCard } from "./components/bento/BentoCard";
 import { ToggleImage } from "./components/ui/ToggleImage";
-import { Briefcase, Star, Mail, MapPin, Linkedin, Github, User, Plus } from "lucide-react";
+import { FlipCard } from "./components/ui/FlipCard";
+import { Briefcase, Star, Mail, MapPin, Linkedin, Github, User } from "lucide-react";
 import { cn } from "./lib/utils";
 import { NewEntryForm } from "./components/work-calendar/NewEntryForm";
 
@@ -13,6 +14,7 @@ import mapImg from "./assets/images/map-dark.png";
 import ambulanceImg from "./assets/images/juh_ambulance.jpg";
 import motorcycleImg from "./assets/images/juh_motorcycle.jpg";
 import orchestraImg from "./assets/images/br_orchestra.jpg";
+import certImg from "./assets/images/certificate_rs.jpg";
 
 function App() {
   const [showNewEntry, setShowNewEntry] = useState(false);
@@ -99,18 +101,27 @@ function App() {
             title="Nebentätigkeit"
             description="Projektbezogene und nebenberufliche Tätigkeiten. Ich verwirkliche eigene Ideen."
             header={
-              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/5 relative group">
-                <div className="flex w-full h-full">
-                  <div
-                    className="flex-1 bg-cover bg-center opacity-60 group-hover:opacity-100 transition-all duration-500"
-                    style={{ backgroundImage: `url(${motorcycleImg})` }}
-                  />
-                  <div
-                    className="flex-1 bg-cover bg-center opacity-60 group-hover:opacity-100 transition-all duration-500"
-                    style={{ backgroundImage: `url(${ambulanceImg})` }}
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent z-10 pointer-events-none" />
+              <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-visible border border-white/5 relative group z-10">
+                <FlipCard
+                  frontContent={
+                    <div className="flex w-full h-full rounded-xl overflow-hidden relative">
+                      <div
+                        className="flex-1 bg-cover bg-center opacity-60 group-hover:opacity-100 transition-all duration-500"
+                        style={{ backgroundImage: `url(${motorcycleImg})` }}
+                      />
+                      <div
+                        className="flex-1 bg-cover bg-center opacity-60 group-hover:opacity-100 transition-all duration-500"
+                        style={{ backgroundImage: `url(${ambulanceImg})` }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent z-10 pointer-events-none" />
+                    </div>
+                  }
+                  backContent={
+                    <div className="w-full h-full bg-neutral-800 p-4 flex flex-col items-center justify-center text-center">
+                      <img src={certImg} alt="Rettungssanitäter Urkunde" className="max-h-full max-w-full object-contain rounded shadow-lg" />
+                    </div>
+                  }
+                />
               </div>
             }
             icon={<Star className="h-4 w-4 text-neutral-500" />}
