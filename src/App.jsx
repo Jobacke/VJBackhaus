@@ -7,7 +7,7 @@ import { ToggleImage } from "./components/ui/ToggleImage";
 import { FlipCard } from "./components/ui/FlipCard";
 import { ImageModal } from "./components/ui/ImageModal";
 import { DetailModal } from "./components/ui/DetailModal";
-import { Briefcase, Star, Mail, MapPin, Linkedin, Github, User, ZoomIn, ArrowUpRight, Phone, Copy, Check, ExternalLink } from "lucide-react";
+import { Briefcase, Star, Mail, MapPin, Linkedin, Github, User, ZoomIn, ArrowUpRight, Phone, Copy, Check, ExternalLink, Instagram } from "lucide-react";
 import { cn } from "./lib/utils";
 
 // Import images
@@ -222,7 +222,14 @@ function App() {
                     >
                       <Linkedin className="w-5 h-5" />
                     </a>
-                    {/* Placeholder for more socials */}
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-neutral-800 rounded-lg hover:bg-[#E1306C] hover:text-white transition-colors text-neutral-400 border border-white/5"
+                    >
+                      <Instagram className="w-5 h-5" />
+                    </a>
                   </div>
                 </div>
               </div>
