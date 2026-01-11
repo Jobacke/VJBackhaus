@@ -18,6 +18,7 @@ import orchestraImg from "./assets/images/br_orchestra.jpg";
 import certRsImg from "./assets/images/certificate_rs.jpg";
 import certWbImg from "./assets/images/certificate_wb.jpg";
 import certAclsImg from "./assets/images/certificate_acls.jpg";
+import profileImg from "./assets/images/profile.jpg";
 
 // Helper Component for Copy Button
 function CopyButton({ text }) {
@@ -124,12 +125,13 @@ function App() {
 
         <BentoGrid>
           {/* Tile 1: About / Intro (Large) */}
+          {/* Tile 1: About / Intro (Large) */}
           <BentoCard
-            className="md:col-span-2 md:row-span-1 bg-gradient-to-br from-neutral-900 to-neutral-800 cursor-pointer group/about"
+            className="md:col-span-2 md:row-span-1 bg-gradient-to-br from-neutral-900 to-neutral-800 cursor-pointer group/about overflow-hidden relative"
             title="Über mich"
             onClick={() => setShowBioModal(true)}
             description={
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 relative z-10 w-full md:max-w-[60%]">
                 <p className="line-clamp-3 md:line-clamp-none text-neutral-400 group-hover/about:text-neutral-300 transition-colors">
                   Vom stellv. Solopauker zum Vorsitzenden des Gesamtpersonalrates. Geboren in Erfurt und musikalisch ausgebildet in Erfurt und Weimar, blicke ich auf eine vielseitige Laufbahn zurück...
                 </p>
@@ -138,8 +140,17 @@ function App() {
                 </div>
               </div>
             }
-            header={<div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-primary-900/40 to-neutral-900 border border-white/5 transition-colors group-hover/about:bg-primary-900/20" />}
-            icon={<User className="h-4 w-4 text-neutral-500" />}
+            header={
+              <div className="absolute inset-y-0 right-0 w-1/2 h-full z-0 hidden md:block">
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-neutral-900/20 to-neutral-900 z-10" />
+                <img
+                  src={profileImg}
+                  alt="Johannes Backhaus"
+                  className="w-full h-full object-cover object-top opacity-60 grayscale-[30%] group-hover/about:grayscale-0 group-hover/about:opacity-100 group-hover/about:scale-105 transition-all duration-700"
+                />
+              </div>
+            }
+            icon={<User className="h-4 w-4 text-neutral-500 relative z-10" />}
           />
 
           {/* Tile 2: Profession */}
