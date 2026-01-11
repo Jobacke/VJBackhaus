@@ -52,14 +52,13 @@ function App() {
   const professionContent = (
     <>
       <p>
-        Als Leiter des Orchesterbüros beim Symphonieorchester des Bayerischen Rundfunks koordiniere ich vielfältige organisatorische Abläufe eines der weltweit führenden Orchester.
+        Als Leiter des Orchesterbüros beim Symphonieorchester des Bayerischen Rundfunks steuere ich die komplexen Abläufe hinter den Kulissen eines der weltweit führenden Orchester.
       </p>
       <p className="mt-4">
-        Immer wieder gibt es spannende und herausfordernde Projekte und in meiner Tätigkeit habe ich die Möglichkeit, mit den besten Dirigentinnen, Dirigenten, Solistinnen und Solisten der Welt zusammenzuarbeiten.
+        Es ist eine tägliche Inspiration, mit den besten Dirigentinnen, Dirigenten und Solisten unserer Zeit zusammenzuarbeiten und gemeinsam anspruchsvolle Projekte zu realisieren.
       </p>
       <p className="mt-4">
-        Neben den zahlreichen Konzerten in München und in Bayern gehören auch Konzertreisen in Europa, Asien, den Vereinigten Staaten von Amerika sowie Südamerika zum Tätigkeitsfeld.
-        Für mich sind die vielfältigen und komplexen Aufgaben einer der spannendsten Berufe der Welt!
+        Ob bei Konzerten in München oder auf Tourneen durch Europa, Asien und Amerika: Diese Aufgabenvielfalt macht meine Tätigkeit für mich zu einem der spannendsten Berufe der Welt!
       </p>
     </>
   );
@@ -121,7 +120,7 @@ function App() {
             description={
               <div className="flex flex-col gap-2">
                 <p className="text-neutral-400 group-hover/profession:text-neutral-300 transition-colors">
-                  Meine aktuelle Tätigkeit beim Bayerischen Rundfunk
+                  Hinter den Kulissen der Weltklasse
                 </p>
                 <div className="flex items-center gap-1 text-primary-400 text-sm font-medium mt-1 opacity-80 group-hover/profession:opacity-100 transition-opacity">
                   Mehr lesen <ArrowUpRight className="w-4 h-4" />
