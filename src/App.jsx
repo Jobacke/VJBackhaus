@@ -126,13 +126,14 @@ function App() {
         <BentoGrid>
           {/* Tile 1: About / Intro (Large) */}
           {/* Tile 1: About / Intro (Large) */}
+          {/* Tile 1: About / Intro (Large) */}
           <BentoCard
-            className="md:col-span-2 md:row-span-1 bg-gradient-to-br from-neutral-900 to-neutral-800 cursor-pointer group/about overflow-hidden relative"
+            className="md:col-span-2 md:row-span-1 bg-neutral-900 cursor-pointer group/about overflow-hidden relative"
             title="Über mich"
             onClick={() => setShowBioModal(true)}
             description={
-              <div className="flex flex-col gap-2 relative z-10 w-full md:max-w-[60%]">
-                <p className="line-clamp-3 md:line-clamp-none text-neutral-400 group-hover/about:text-neutral-300 transition-colors">
+              <div className="flex flex-col gap-2 relative z-20">
+                <p className="line-clamp-3 md:line-clamp-none text-neutral-300 group-hover/about:text-white transition-colors">
                   Vom stellv. Solopauker zum Vorsitzenden des Gesamtpersonalrates. Geboren in Erfurt und musikalisch ausgebildet in Erfurt und Weimar, blicke ich auf eine vielseitige Laufbahn zurück...
                 </p>
                 <div className="flex items-center gap-1 text-primary-400 text-sm font-medium mt-1 opacity-80 group-hover/about:opacity-100 transition-opacity">
@@ -141,16 +142,18 @@ function App() {
               </div>
             }
             header={
-              <div className="absolute inset-y-0 right-0 w-full md:w-1/2 h-full z-0">
-                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-neutral-900 via-neutral-900/60 to-transparent md:via-neutral-900/20 md:to-neutral-900 z-10" />
+              <div className="absolute inset-0 z-0">
+                {/* Background Image */}
                 <img
                   src={profileImg}
                   alt="Johannes Backhaus"
-                  className="w-full h-full object-cover object-top opacity-50 md:opacity-60 grayscale-[30%] group-hover/about:grayscale-0 group-hover/about:opacity-100 group-hover/about:scale-105 transition-all duration-700"
+                  className="w-full h-full object-cover object-top opacity-40 grayscale-[20%] group-hover/about:grayscale-0 group-hover/about:opacity-60 group-hover/about:scale-105 transition-all duration-700"
                 />
+                {/* Dark Gradient Overlay for Readability */}
+                <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-transparent z-10" />
               </div>
             }
-            icon={<User className="h-4 w-4 text-neutral-500 relative z-10" />}
+            icon={<User className="h-4 w-4 text-neutral-400 relative z-20" />}
           />
 
           {/* Tile 2: Profession */}
