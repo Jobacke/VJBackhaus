@@ -173,15 +173,15 @@ function App() {
             icon={<Mail className="h-4 w-4 text-neutral-500" />}
           />
 
-          {/* Tile 4: Nebentätigkeit with Flip Gallery */}
+          {/* Tile 4: Side Business with Flip Gallery */}
           <BentoCard
             className="md:col-span-2 md:row-span-1 bg-gradient-to-r from-neutral-900 to-neutral-800 cursor-pointer group/sidebiz"
-            title="Nebentätigkeit"
+            title="Passion & Praxis"
             onClick={() => setShowSideBusinessModal(true)}
             description={
               <div className="flex flex-col gap-2">
                 <p className="text-neutral-400 group-hover/sidebiz:text-neutral-300 transition-colors">
-                  Projektbezogene und nebenberufliche Tätigkeiten. Ich verwirkliche eigene Ideen.
+                  Im Einsatz für andere
                 </p>
                 <div className="flex items-center gap-1 text-primary-400 text-sm font-medium mt-1 opacity-80 group-hover/sidebiz:opacity-100 transition-opacity">
                   Mehr lesen <ArrowUpRight className="w-4 h-4" />
@@ -293,7 +293,7 @@ function App() {
       {/* Side Business Modal */}
       {showSideBusinessModal && (
         <DetailModal
-          title="Nebentätigkeit"
+          title="Passion & Praxis"
           content={sideBusinessContent}
           onClose={() => setShowSideBusinessModal(false)}
         />
