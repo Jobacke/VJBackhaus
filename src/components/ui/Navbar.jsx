@@ -35,7 +35,7 @@ export function Navbar() {
         >
             <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
                 <a href="#" className="text-xl font-display font-bold tracking-tight">
-                    Backhaus<span className="text-primary-400">.</span>
+                    Johannes Backhaus<span className="text-primary-400">.</span>
                 </a>
 
                 {/* Desktop Nav */}
