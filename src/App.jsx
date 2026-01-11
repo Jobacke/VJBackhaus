@@ -22,6 +22,8 @@ import certAclsImg from "./assets/images/certificate_acls.jpg";
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [showBioModal, setShowBioModal] = useState(false);
+  const [showProfessionModal, setShowProfessionModal] = useState(false);
+  const [showSideBusinessModal, setShowSideBusinessModal] = useState(false);
 
   const certificates = [
     { src: certRsImg, alt: "Rettungssanitäter Urkunde", label: "Rettungssanitäter" },
@@ -43,6 +45,29 @@ function App() {
       <p className="mt-4">
         Seit 2024 widme ich mich nun mit voller Überzeugung einer neuen Verantwortung:
         Als Vorsitzender des Gesamtpersonalrates vertrete ich engagiert die Interessen der Mitarbeitenden beim Bayerischen Rundfunk.
+      </p>
+    </>
+  );
+
+  const professionContent = (
+    <>
+      <p>
+        Als Orchestermanager beim Symphonieorchester des Bayerischen Rundfunks koordiniere ich die künstlerischen und organisatorischen Abläufe eines der weltweit führenden Orchester.
+      </p>
+      <p className="mt-4">
+        [Platzhalter für mehr Details zu Aufgaben, Verantwortung, Projekten. Hier könnte stehen, wie Du die Schnittstelle zwischen Kunst und Administration bildest, welche besonderen Herausforderungen es gibt, etc.]
+      </p>
+    </>
+  );
+
+  const sideBusinessContent = (
+    <>
+      <p>
+        Neben meiner Haupttätigkeit engagiere ich mich im Rettungsdienst und realisiere eigene Projekte.
+        Diese Vielseitigkeit erlaubt es mir, über den Tellerrand zu blicken und Kompetenzen aus verschiedenen Welten zu verknüpfen.
+      </p>
+      <p className="mt-4">
+        [Platzhalter für weitere Details zu eigenen Projekten oder spezifischen Qualifikationen im Rettungsdienst.]
       </p>
     </>
   );
@@ -86,9 +111,19 @@ function App() {
 
           {/* Tile 2: Profession */}
           <BentoCard
-            className="md:col-span-1 md:row-span-1 bg-neutral-900"
+            className="md:col-span-1 md:row-span-1 bg-neutral-900 cursor-pointer group/profession"
             title="Beruf"
-            description="Meine aktuelle Tätigkeit beim Bayerischen Rundfunk"
+            onClick={() => setShowProfessionModal(true)}
+            description={
+              <div className="flex flex-col gap-2">
+                <p className="text-neutral-400 group-hover/profession:text-neutral-300 transition-colors">
+                  Meine aktuelle Tätigkeit beim Bayerischen Rundfunk
+                </p>
+                <div className="flex items-center gap-1 text-primary-400 text-sm font-medium mt-1 opacity-80 group-hover/profession:opacity-100 transition-opacity">
+                  Mehr lesen <ArrowUpRight className="w-4 h-4" />
+                </div>
+              </div>
+            }
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/5 relative group">
                 <div className="absolute inset-0 bg-neutral-900 z-0" />
@@ -131,10 +166,19 @@ function App() {
 
           {/* Tile 4: Nebentätigkeit with Flip Gallery */}
           <BentoCard
-            href="#"
-            className="md:col-span-2 md:row-span-1 bg-gradient-to-r from-neutral-900 to-neutral-800"
+            className="md:col-span-2 md:row-span-1 bg-gradient-to-r from-neutral-900 to-neutral-800 cursor-pointer group/sidebiz"
             title="Nebentätigkeit"
-            description="Projektbezogene und nebenberufliche Tätigkeiten. Ich verwirkliche eigene Ideen."
+            onClick={() => setShowSideBusinessModal(true)}
+            description={
+              <div className="flex flex-col gap-2">
+                <p className="text-neutral-400 group-hover/sidebiz:text-neutral-300 transition-colors">
+                  Projektbezogene und nebenberufliche Tätigkeiten. Ich verwirkliche eigene Ideen.
+                </p>
+                <div className="flex items-center gap-1 text-primary-400 text-sm font-medium mt-1 opacity-80 group-hover/sidebiz:opacity-100 transition-opacity">
+                  Mehr lesen <ArrowUpRight className="w-4 h-4" />
+                </div>
+              </div>
+            }
             header={
               <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-visible border border-white/5 relative group z-10">
                 <FlipCard
@@ -225,6 +269,24 @@ function App() {
           title="Über mich"
           content={fullBio}
           onClose={() => setShowBioModal(false)}
+        />
+      )}
+
+      {/* Profession Modal */}
+      {showProfessionModal && (
+        <DetailModal
+          title="Beruf"
+          content={professionContent}
+          onClose={() => setShowProfessionModal(false)}
+        />
+      )}
+
+      {/* Side Business Modal */}
+      {showSideBusinessModal && (
+        <DetailModal
+          title="Nebentätigkeit"
+          content={sideBusinessContent}
+          onClose={() => setShowSideBusinessModal(false)}
         />
       )}
     </Layout>

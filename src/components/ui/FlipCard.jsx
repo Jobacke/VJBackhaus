@@ -19,6 +19,7 @@ export const FlipCard = ({ frontContent, backContent }) => {
                     <button
                         onClick={(e) => {
                             e.preventDefault();
+                            e.stopPropagation();
                             setIsFlipped(true);
                         }}
                         className="absolute bottom-4 right-4 z-30 bg-black/50 hover:bg-black/70 text-white text-xs px-2 py-1 rounded backdrop-blur-sm border border-white/10 transition-colors flex items-center gap-1 opacity-0 group-hover/flip:opacity-100 transition-opacity"
@@ -34,6 +35,7 @@ export const FlipCard = ({ frontContent, backContent }) => {
                     <button
                         onClick={(e) => {
                             e.preventDefault();
+                            e.stopPropagation();
                             setIsFlipped(false);
                         }}
                         className="absolute bottom-4 right-4 z-30 bg-black/50 hover:bg-black/70 text-white text-xs px-2 py-1 rounded backdrop-blur-sm border border-white/10 transition-colors flex items-center gap-1"
