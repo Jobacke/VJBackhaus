@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navbar } from "../components/ui/Navbar";
 import { DetailModal } from "../components/ui/DetailModal";
 import { CookieConsent } from "../components/ui/CookieConsent";
+import { InfoFooter } from "../components/ui/InfoFooter";
 
 export function Layout({ children }) {
     const [showImpressum, setShowImpressum] = useState(false);
@@ -28,18 +29,78 @@ export function Layout({ children }) {
     );
 
     const datenschutzContent = (
-        <div className="space-y-4">
-            <p>
-                Der Schutz Ihrer Daten ist uns wichtig. Da diese Website primär als Portfolio dient, erfassen wir keine personenbezogenen Daten über Kontaktformulare oder Tracking-Cookies.
-            </p>
-            <h3 className="text-xl font-bold text-neutral-200">Hosting</h3>
-            <p>
-                Diese Website wird bei GitHub Pages gehostet. GitHub kann Server-Logfiles erfassen (IP-Adresse, Browser, Zeitstempel), um die Sicherheit und Stabilität des Dienstes zu gewährleisten.
-            </p>
-            <h3 className="text-xl font-bold text-neutral-200">Kontakt</h3>
-            <p>
-                Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
-            </p>
+        <div className="space-y-6 text-sm md:text-base selection:bg-primary-500/30">
+            <section className="space-y-3">
+                <h3 className="text-xl font-bold text-white">Datenschutz nach Artikel 13 DSGVO</h3>
+                <p>
+                    Ich freue mich über Ihr Interesse an meinem Internetauftritt. Das Vertrauen aller Besucher und Kunden, die Sicherheit Ihrer Daten und der Schutz Ihrer Privatsphäre sind für mich von zentraler Bedeutung.
+                </p>
+                <p>
+                    Ihre personenbezogenen Daten werden von mir daher gemäß den gültigen gesetzlichen Datenschutzvorschriften und dieser Datenschutzerklärung behandelt. Personenbezogene Daten sind Informationen, die dazu genutzt werden können, um Ihre Identität zu erfahren. Typische personenbezogene Daten sind unter anderem Name, Vorname, Adresse, Telefonnummer, IP-Adresse, Cookies und E-Mail-Adresse.
+                </p>
+                <p>
+                    Wenn Sie meine Webseite ansehen und benutzen oder mir anderweitig ausdrücklich Informationen übermitteln, verarbeite ich die Daten, die mir mit jeder Anfrage Ihres Browsers automatisch übermittelt werden (siehe dazu den Abschnitt "Protokoll-Daten"). Sofern Sie mir freiwillig personenbezogene Daten übermitteln, erfolgt die Verarbeitung ausschließlich zweckgebunden an die Anfrage bzw. den jeweiligen Auftrag. Ich weise Sie darauf hin, dass eine Datenübertragung im Internet nie vollständig gegen einen Zugriff durch Dritte geschützt werden kann.
+                </p>
+                <p>
+                    Nachfolgend möchte ich Ihnen in den einzelnen Abschnitten näher erläutern, welche Daten ich wann und zu welchem Zweck verarbeite. Es wird erklärt, wie meine angebotenen Dienste arbeiten und wie hierbei der Schutz Ihrer personenbezogenen Daten gewährleistet wird.
+                </p>
+            </section>
+
+            <section className="border-l-4 border-primary-500 pl-4 py-1 bg-white/5 rounded-r-lg">
+                <p className="font-mono text-primary-400 font-bold">Stand: 14. Januar 2026</p>
+            </section>
+
+            <section className="space-y-3">
+                <h3 className="text-xl font-bold text-white">Name und Anschrift des Verantwortlichen</h3>
+                <p>
+                    Der Verantwortliche im Sinne der EU-Datenschutz-Grundverordnung sowie sonstiger datenschutzrechtlicher Bestimmungen ist:
+                </p>
+                <address className="not-italic bg-neutral-900/50 p-4 rounded-lg border border-white/5">
+                    <strong>Johannes Backhaus</strong><br />
+                    Wotanstraße 5<br />
+                    85579 Neubiberg<br />
+                    Deutschland<br />
+                    <a href="mailto:johannes@vjbackhaus.com" className="text-primary-400 hover:underline mt-2 inline-block">johannes@vjbackhaus.com</a>
+                </address>
+            </section>
+
+            <section className="space-y-3">
+                <h3 className="text-xl font-bold text-white">Allgemeines zur Verarbeitung personenbezogener Daten</h3>
+                <p><strong>Umfang der Verarbeitung:</strong> Ich verarbeite personenbezogene Daten meiner Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie meiner angebotenen Inhalte und Leistungen erforderlich ist. Die Verarbeitung personenbezogener Daten erfolgt nur auf Basis der aktuell geltenden rechtlichen Grundlagen.</p>
+                <p><strong>Zwecke der Verarbeitung:</strong> Die Zwecke der Verarbeitung personenbezogener Daten begründen sich in der Durchführung des Geschäftsbetriebs und aller damit verbundenen Nebengeschäfte.</p>
+                <p><strong>Weitergabe personenbezogener Daten:</strong> Ich gebe Ihre personenbezogenen Daten nur dann an Dritte weiter, wenn dies contractuell notwendig ist, zur Wahrung berechtigter Interessen dient oder ich gesetzlich dazu verpflichtet bin.</p>
+            </section>
+
+            <section className="space-y-3">
+                <h3 className="text-xl font-bold text-white">Datenlöschung und Speicherdauer</h3>
+                <p>Die personenbezogenen Daten der betroffenen Person werden gelöscht, sobald der Zweck der Speicherung entfällt oder vorgeschriebene Speicherfristen ablaufen.</p>
+            </section>
+
+            <section className="space-y-3">
+                <h3 className="text-xl font-bold text-white">Hosting</h3>
+                <p>
+                    Für das Hosting unserer Website und die Darstellung der Seiteninhalte nutze ich das System von GitHub Pages.
+                    Sämtliche auf dieser Website erhobenen Daten werden auf den Servern des Anbieters verarbeitet.
+                </p>
+            </section>
+
+            <section className="space-y-3">
+                <h3 className="text-xl font-bold text-white">Cookies</h3>
+                <p>
+                    Auf dieser Website werden grundsätzlich keine Marketing- und Tracking-Cookies ohne Ihre explizite Einwilligung verwendet.
+                    Wir setzen lediglich technisch notwendige Cookies ein, um Ihre Präferenzen (z.B. Cookie-Einstellungen) zu speichern.
+                    Weitere Cookies (z.B. für Statistik) werden nur mit Ihrer Zustimmung im Cookie-Banner aktiviert.
+                </p>
+            </section>
+
+            <section className="space-y-3">
+                <h3 className="text-xl font-bold text-white">Rechte betroffener Personen</h3>
+                <ul className="list-disc pl-5 space-y-1 text-neutral-400">
+                    <li><strong className="text-neutral-200">Widerspruchsrecht:</strong> Gegen Verarbeitung aufgrund berechtigter Interessen.</li>
+                    <li><strong className="text-neutral-200">Widerrufsrecht:</strong> Bei Einwilligungen jederzeit möglich.</li>
+                    <li><strong className="text-neutral-200">Auskunft, Berichtigung, Löschung:</strong> Nach gesetzlichen Vorgaben.</li>
+                </ul>
+            </section>
         </div>
     );
 
@@ -85,6 +146,8 @@ export function Layout({ children }) {
                 onOpenPrivacy={() => setShowDatenschutz(true)}
                 onOpenImpressum={() => setShowImpressum(true)}
             />
+
+            <InfoFooter />
         </div>
     );
 }
